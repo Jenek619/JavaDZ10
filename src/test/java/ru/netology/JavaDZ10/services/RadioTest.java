@@ -1,4 +1,5 @@
 package ru.netology.JavaDZ10.services;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -112,7 +113,124 @@ public class RadioTest {
     }
 
 
+    @Test
+    public void shouldSetVolume() {
+        Radio vol = new Radio();
+
+        vol.setCurrentVolume(50);
+
+        int expected = 50;
+        int actual = vol.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void shouldMinVolume() {
+        Radio vol = new Radio();
+
+        vol.setToMinVolume(0);
+
+        int expected = 0;
+        int actual = vol.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldUnderMinVolume() {
+        Radio vol = new Radio();
+
+        vol.setToMinVolume(-1);
+
+        int expected = 0;
+        int actual = vol.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+    @Test
+    public void shouldMaxVolume() {
+        Radio vol = new Radio();
+
+        vol.setToMaxVolume(100);
+
+        int expected = 100;
+        int actual = vol.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldUpMaxVolume() {
+        Radio vol = new Radio();
+
+        vol.setToMaxVolume(101);
+
+        int expected = 100;
+        int actual = vol.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldNextVolume() {
+        Radio vol = new Radio();
+
+        vol.setToNextVolume(84);
+
+        int expected = 85;
+        int actual = vol.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldUpNextVolume() {
+        Radio vol = new Radio();
+
+        vol.setToNextVolume(-1);
+
+        int expected = 0;
+        int actual = vol.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldBackVolume() {
+        Radio vol = new Radio();
+
+        vol.setToBackVolume(81);
+
+        int expected = 80;
+        int actual = vol.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldUnderBackVolume() {
+        Radio vol = new Radio();
+
+        vol.setToBackVolume(101);
+
+        int expected = 100;
+        int actual = vol.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
 }
+
+
+
+
+
+
 
 
 
