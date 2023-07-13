@@ -4,9 +4,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
+    Radio stat = new Radio(10);
+
     @Test
     public void shouldSetStation() {
-        Radio stat = new Radio();
         stat.setCurrentStation(5);
 
         int expected = 5;
@@ -19,11 +20,11 @@ public class RadioTest {
 
     @Test
     public void shouldNextStation() {
-        Radio stat = new Radio();
-        stat.setCurrentStation(2);
+        Radio stat = new Radio(10);
+        stat.setCurrentStation(8);
         stat.nextStation();
 
-        int expected = 3;
+        int expected = 9;
         int actual = stat.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
@@ -31,7 +32,6 @@ public class RadioTest {
 
     @Test
     public void shouldNextStationAfterMax() {
-        Radio stat = new Radio();
         stat.setCurrentStation(9);
         stat.nextStation();
 
@@ -44,7 +44,6 @@ public class RadioTest {
 
     @Test
     public void shouldPrevStation() {
-        Radio stat = new Radio();
         stat.setCurrentStation(8);
         stat.prevStation();
 
@@ -56,7 +55,6 @@ public class RadioTest {
 
     @Test
     public void shouldPrevStationBeforeMin() {
-        Radio stat = new Radio();
         stat.setCurrentStation(0);
         stat.prevStation();
 
@@ -69,7 +67,7 @@ public class RadioTest {
     @Test
     public void shouldStationAboveMax() {
         Radio stat = new Radio();
-        stat.setCurrentStation(10);
+        stat.setCurrentStation(11);
         stat.nextStation();
 
         int expected = 1;
